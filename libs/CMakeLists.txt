@@ -16,7 +16,7 @@ set(LIB_NAME "crpdfcpp")
 FetchContent_Declare(
     ${LIB_NAME}
     GIT_REPOSITORY https://github.com/rsvzz/crpdfcpp.git
-    GIT_TAG        fd18f19500a62fd593b3e483a3b6f58821193c81 # tag or commit
+    GIT_TAG        ace39aabc41517d5afce5c0e8b37b0e91d7eeb14 # tag or commit
     SYSTEM
 )
 

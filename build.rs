@@ -2,7 +2,7 @@ use cmake::Config;
 use std::path::Path;
 
 fn main() {
-    let project_name = "../crpdfcpp"; // libs remote or local ../name git --clone
+    let project_name = "libs"; // libs remote or local ../name git --clone
     let native_dir = Path::new(project_name);
 
     // valid CMakeLists.txt file

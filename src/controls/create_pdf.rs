@@ -20,6 +20,7 @@ unsafe extern "C" {
     unsafe fn crpdf_free(text: *mut CreatePDFOpaque);
     unsafe fn crpdf_get_context(pdf: *mut CreatePDFOpaque) -> *mut CairoOpaque;
     unsafe fn crpdf_cairo_surface_free(pdf: *mut CreatePDFOpaque);
+    unsafe fn crpdf_cairo_surface_new_page(pdf: *mut CreatePDFOpaque);
 }
 
 pub struct CreatePDF {
@@ -67,6 +68,14 @@ impl CreatePDF {
             }
         }
         
+    }
+
+    pub fn new_page(&self){
+         if !self.ptr.is_null() {
+            unsafe {
+                crpdf_cairo_surface_new_page(self.ptr);
+            }
+         }
     }
 }
 
