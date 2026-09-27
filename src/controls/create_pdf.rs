@@ -19,7 +19,6 @@ unsafe extern "C" {
     unsafe fn crpdf_create(path: *const c_char, width: f64, height: f64) -> *mut CreatePDFOpaque;
     unsafe fn crpdf_free(text: *mut CreatePDFOpaque);
     unsafe fn crpdf_get_context(pdf: *mut CreatePDFOpaque) -> *mut CairoOpaque;
-    unsafe fn crpdf_cairo_surface_free(pdf: *mut CreatePDFOpaque);
     unsafe fn crpdf_cairo_surface_new_page(pdf: *mut CreatePDFOpaque);
 }
 
@@ -83,7 +82,6 @@ impl Drop for CreatePDF {
     fn drop(&mut self) {
         if !self.ptr.is_null() {
             unsafe {
-                crpdf_cairo_surface_free(self.ptr);
                 crpdf_free(self.ptr);
             }
         }
